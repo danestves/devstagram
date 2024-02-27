@@ -30,7 +30,7 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 
     Route::delete('/logout', [LogoutController::class, 'store'])->name('logout');
 });

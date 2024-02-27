@@ -34,6 +34,6 @@ class SignUpController extends Controller
 
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route("posts.index")->with('success', 'Your account has been created.');
+        return redirect()->route("posts.index", ['user' => auth()->user()->username])->with('success', 'Your account has been created.');
     }
 }

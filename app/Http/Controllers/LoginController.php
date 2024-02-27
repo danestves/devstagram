@@ -22,6 +22,6 @@ class LoginController extends Controller
             return back()->with('error', 'Invalid login details');
         }
 
-        return redirect()->route('posts.index')->with('success', 'Welcome back!');
+        return redirect()->route('posts.index', ['user' => auth()->user()->username])->with('success', 'Welcome back!');
     }
 }
